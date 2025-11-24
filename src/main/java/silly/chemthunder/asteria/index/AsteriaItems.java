@@ -9,6 +9,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import silly.chemthunder.asteria.Asteria;
 import silly.chemthunder.asteria.item.EclipsedEffigyItem;
+import silly.chemthunder.asteria.item.RitualisticBraceletItem;
 
 import java.util.function.Function;
 
@@ -19,16 +20,21 @@ public interface AsteriaItems {
             .maxCount(1)
     );
 
+    Item RITUALISTIC_BRACELET = create("ritualistic_bracelet", RitualisticBraceletItem::new, new AcornItemSettings()
+            .maxCount(1)
+    );
+
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
         return Items.register(RegistryKey.of(RegistryKeys.ITEM, Asteria.id(name)), factory, settings);
     }
 
     static void index() {
-        //   modifyItemNameColor(AMARANTHINE_CLEAVER, 0x90403e);
         modifyItemNameColor(ECLIPSED_EFFIGY, 0xe348f3);
+        modifyItemNameColor(RITUALISTIC_BRACELET, 0xe348f3);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.TRIDENT, ECLIPSED_EFFIGY);
+            entries.addAfter(ECLIPSED_EFFIGY, RITUALISTIC_BRACELET);
         });
     }
 }
