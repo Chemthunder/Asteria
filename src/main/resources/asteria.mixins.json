@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "silly.chemthunder.asteria.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "client.ClientWorldMixin",
+    "client.CloudRendererMixin",
+    "client.OverworldDimensionEffectsMixin",
+    "client.SkyRenderingMixin",
+    "client.WeatherRenderingMixin",
+    "client.WorldRendererMixin"
+  ]
+}

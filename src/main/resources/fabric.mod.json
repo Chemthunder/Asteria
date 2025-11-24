@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "asteria",
+  "version": "${version}",
+  "name": "Asteria",
+  "description": "This isn't a Defile reference, is it?",
+  "authors": [
+    "Chemthunder"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/asteria/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "silly.chemthunder.asteria.Asteria"
+    ],
+    "fabric-datagen": [
+      "silly.chemthunder.asteria.AsteriaDataGenerator"
+    ],
+    "cardinal-components": [
+      "silly.chemthunder.asteria.cca.AsteriaComponents"
+    ]
+  },
+  "mixins": [
+    "asteria.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.5",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "custom": {
+    "cardinal-components": [
+      "asteria:arisen",
+      "asteria:eclipse"
+    ]
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
