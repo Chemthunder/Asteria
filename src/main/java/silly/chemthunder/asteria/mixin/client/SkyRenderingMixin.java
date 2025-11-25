@@ -25,7 +25,6 @@ import silly.chemthunder.asteria.cca.EclipsedSkyWorldComponent;
 @Mixin(SkyRendering.class)
 public abstract class SkyRenderingMixin {
     @Unique private static final Identifier ECLIPSE_TEXTURE = Asteria.id("textures/environment/eclipse.png");
-    @Unique private static final Identifier SUN_TEXTURE = Identifier.ofVanilla("textures/environment/sun.png");
     @Unique private float rotationBlend = 0f;
     @Unique private static final float MAX_ROTATION_DEGREES = 45f;
     @Unique private static final float ROTATION_SPEED_DEGREES_PER_SECOND = 1f;
