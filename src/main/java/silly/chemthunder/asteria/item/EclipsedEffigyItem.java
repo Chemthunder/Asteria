@@ -30,7 +30,7 @@ public class EclipsedEffigyItem extends Item {
         eclipse.eclipseTicks = 180;
 
         eclipse.sync();
-        stack.decrement(1);
+        if (!user.getGameMode().isCreative()) stack.decrement(1);
 
         Box area = new Box(user.getBlockPos()).expand(3);
         List<PlayerEntity> entities = world.getEntitiesByClass(PlayerEntity.class, area, entity -> true);
