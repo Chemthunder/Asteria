@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import silly.chemthunder.asteria.cca.ArisenPlayerComponent;
 import silly.chemthunder.asteria.cca.EclipsedSkyWorldComponent;
-import silly.chemthunder.asteria.index.AsteriaStatusEffects;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
@@ -21,9 +21,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     private void ticker(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         if (EclipsedSkyWorldComponent.KEY.get(getWorld()).eclipseTicks > 0) {
-            if (player.hasStatusEffect(AsteriaStatusEffects.SUPERIOR) || player.hasStatusEffect(AsteriaStatusEffects.SUBORDINATE)) {
-                /// every tick while eclipse is active, effects are set to 5m
-            }
+            ArisenPlayerComponent arisen = ArisenPlayerComponent.KEY.get(player);
+            arisen.arisenTicks = 180;
         }
     }
 }

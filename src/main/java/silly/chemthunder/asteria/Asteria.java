@@ -7,7 +7,6 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import silly.chemthunder.asteria.index.AsteriaItems;
-import silly.chemthunder.asteria.index.AsteriaStatusEffects;
 
 public class Asteria implements ModInitializer {
 	public static final String MOD_ID = "asteria";
@@ -20,9 +19,8 @@ public class Asteria implements ModInitializer {
 	@Override
 	public void onInitialize() {
         AsteriaItems.index();
-        AsteriaStatusEffects.index();
 
-        ALib.registerModMenu(MOD_ID, 0xe348f3);
+        ALib.registerModMenu(MOD_ID, 0x62ffae);
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             LOGGER.info("\uD83D\uDC00Mod initalized");
         }

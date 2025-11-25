@@ -5,7 +5,12 @@
   "name": "Asteria",
   "description": "This isn't a Defile reference, is it?",
   "authors": [
-    "Chemthunder"
+    "Chemthunder",
+    "KindlingCinder"
+  ],
+  "contributors": [
+    "4kio - Sounds, music, and textures(?)",
+    "eeverest - Rendering help (genuinely tysm)"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",

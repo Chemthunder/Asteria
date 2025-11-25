@@ -29,8 +29,8 @@ public interface AsteriaItems {
     }
 
     static void index() {
-        modifyItemNameColor(ECLIPSED_EFFIGY, 0xe348f3);
-        modifyItemNameColor(RITUALISTIC_BRACELET, 0xe348f3);
+        modifyItemNameColor(ECLIPSED_EFFIGY, 0x62ffae);
+        modifyItemNameColor(RITUALISTIC_BRACELET, 0x62ffae);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.TRIDENT, ECLIPSED_EFFIGY);
