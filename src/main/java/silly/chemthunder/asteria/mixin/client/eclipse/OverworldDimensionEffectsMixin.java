@@ -1,4 +1,4 @@
-package silly.chemthunder.asteria.mixin.client;
+package silly.chemthunder.asteria.mixin.client.eclipse;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.DimensionEffects;

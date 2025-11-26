@@ -7,7 +7,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import silly.chemthunder.asteria.Asteria;
 import silly.chemthunder.asteria.cca.ArisenPlayerComponent;
 import silly.chemthunder.asteria.cca.EclipsedSkyWorldComponent;
 import silly.chemthunder.asteria.index.AsteriaItems;
@@ -23,10 +22,7 @@ public class EclipsedEffigyItem extends Item {
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
 
-
         EclipsedSkyWorldComponent eclipse = EclipsedSkyWorldComponent.KEY.get(world);
-
-
         eclipse.eclipseTicks = 180;
 
         eclipse.sync();

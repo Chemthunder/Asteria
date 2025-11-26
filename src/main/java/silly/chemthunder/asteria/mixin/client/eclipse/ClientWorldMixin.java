@@ -1,4 +1,4 @@
-package silly.chemthunder.asteria.mixin.client;
+package silly.chemthunder.asteria.mixin.client.eclipse;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.MinecraftClient;

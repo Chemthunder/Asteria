@@ -1,4 +1,4 @@
-package silly.chemthunder.asteria.mixin.client;
+package silly.chemthunder.asteria.mixin.client.eclipse;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
