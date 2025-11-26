@@ -13,7 +13,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.ColorHelper;
-import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -44,12 +43,13 @@ public abstract class InGameHudMixin {
     @Shadow
     protected abstract void renderOverlay(DrawContext context, Identifier texture, float opacity);
 
+
     @Inject(method = "renderHeldItemTooltip", at = @At("HEAD"))
     private void textWiggle(DrawContext context, CallbackInfo ci) {
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player != null) {
             if (ArisenPlayerComponent.KEY.get(player).arisenTicks > 0) {
-                if (this.heldItemTooltipFade > 0 && !this.currentStack.isEmpty()) {
+                if (!this.currentStack.isEmpty()) {
                     MutableText mutableText = Text.empty().append(this.currentStack.getName()).formatted(this.currentStack.getRarity().getFormatting()).withColor(0x62ffae);
                     if (this.currentStack.contains(DataComponentTypes.CUSTOM_NAME)) {
                         mutableText.formatted(Formatting.ITALIC);
@@ -68,18 +68,7 @@ public abstract class InGameHudMixin {
                     }
 
                     if (l > 0) {
-                        float shouldOffset = (float) (Math.sin(MinecraftClient.getInstance().world.getTime() / 4f) * 2f);
-
-                        l /= 2;
-                        Quaternionf quaternionf = new Quaternionf();
-                        quaternionf.rotateXYZ(0f, 0, (float) (Math.cos(MinecraftClient.getInstance().world.getTime() / 8f) / 8f));
-                        context.getMatrices().multiply(quaternionf, j + i / 2f, k, 0);
-                        context.getMatrices().translate(0, shouldOffset, -6);
                         context.drawTextWithBackground(this.getTextRenderer(), mutableText, j, k, i, ColorHelper.withAlpha(l, -1));
-                        context.getMatrices().translate(0, -shouldOffset, 6);
-                        context.getMatrices().translate(0, -shouldOffset, 6);
-                        quaternionf.rotationYXZ(0, 0f, -(float) (Math.cos(MinecraftClient.getInstance().world.getTime() / 8f) / 8f));
-                        context.getMatrices().multiply(quaternionf, j + i / 2f, k, 0);
                     }
                 }
             }
@@ -89,8 +78,11 @@ public abstract class InGameHudMixin {
     @Inject(method = "renderMiscOverlays", at = @At("TAIL"))
     private void renderCustomOverlay(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
         PlayerEntity player = MinecraftClient.getInstance().player;
-        if (ArisenPlayerComponent.KEY.get(player).arisenTicks > 0) {
-            this.renderOverlay(context, TEST_OVERLAY, 0.5f);
+        if (player != null) {
+            if (ArisenPlayerComponent.KEY.get(player).arisenTicks > 0) {
+                this.renderOverlay(context, TEST_OVERLAY, 0.5f);
+            }
         }
     }
+
 }

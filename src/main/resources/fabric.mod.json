@@ -23,6 +23,9 @@
     "main": [
       "silly.chemthunder.asteria.Asteria"
     ],
+    "client": [
+      "silly.chemthunder.asteria.AsteriaClient"
+    ],
     "fabric-datagen": [
       "silly.chemthunder.asteria.AsteriaDataGenerator"
     ],
