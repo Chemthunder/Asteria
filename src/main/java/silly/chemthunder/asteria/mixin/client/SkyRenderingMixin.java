@@ -3,6 +3,7 @@ package silly.chemthunder.asteria.mixin.client;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.SkyRendering;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.ColorHelper;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.World;
 import org.joml.Matrix4f;
+import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -32,10 +34,12 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
     @Unique private boolean inEclipseLastTick = false;
     @Unique private float startX = 0f;
     @Unique private float startZ = 0f;
-    @Unique private final float ECLIPSE_TARGET_X = 25f; // target eclipse sun height
+    @Unique private final float ECLIPSE_TARGET_X = 25f;
     @Unique private final float ECLIPSE_TARGET_Z = 45f;
     @Unique private static final float MAX_ROTATION_DEGREES = 45f;
     @Unique private static final float ROTATION_SPEED_DEGREES_PER_SECOND = 1f;
+    @Unique private float flashDuration = 1.0f;
+    @Unique private float flashTimer = 0f;
 
     @Inject(method = "renderSun", at = @At("HEAD"))
     private void pushRotateSun(float alpha, VertexConsumerProvider vcp, MatrixStack matrices, CallbackInfo ci) {
@@ -45,13 +49,12 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
         boolean inEclipse = world != null && EclipsedSkyWorldComponent.KEY.get(world).eclipseTicks > 0;
         float deltaSeconds = MinecraftClient.getInstance().getRenderTickCounter().getDynamicDeltaTicks();
 
-        // Correct vanilla sun rotation (noon overhead)
         float normalRot = world != null ? ((world.getTimeOfDay() % 24000f) / 24000f) * 360f - 90f : 0f;
 
         if (inEclipse) {
             if (!inEclipseLastTick) {
                 rotationBlend = 0f;
-                startX = normalRot; // start from current sun rotation
+                startX = normalRot;
                 startZ = 0f;
             }
 
@@ -99,6 +102,7 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
         matrices.pop();
     }
 
+
     @WrapOperation(
             method = "renderSun",
             at = @At(
@@ -107,8 +111,10 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
             )
     )
     private RenderLayer swapTextureAfterDelay(Identifier texture, Operation<RenderLayer> original) {
-        if (timeAtFullRotation >= 1f) return original.call(ECLIPSE_TEXTURE);
+        if (timeAtFullRotation >= 1f) {
+            if (flashTimer <= 0f) flashTimer = flashDuration;
+            return original.call(ECLIPSE_TEXTURE);
+        }
         return original.call(texture);
     }
-
 }
