@@ -24,7 +24,6 @@ public class ArisenPlayerComponent implements CommonTickingComponent, AutoSynced
     public void tick() {
         if (arisenTicks > 0) {
             arisenTicks--;
-            player.sendMessage(Text.literal(">:3").formatted(Formatting.OBFUSCATED).formatted(Formatting.ITALIC), true);
             player.setGlowing(true);
             if (arisenTicks == 0) {
                 sync();

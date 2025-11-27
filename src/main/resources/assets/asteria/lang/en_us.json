@@ -1,5 +1,6 @@
 {
-  "item.asteria.eclipsed_effigy": "Eclipsed Effigy",
-
-  "asteria.trigger": "The sun gives way to the Eclipse"
+  "asteria.midnightconfig.test": "Test",
+  "asteria.midnightconfig.title": "Asteria",
+  "asteria.trigger": "The sun gives way to the Eclipse",
+  "item.asteria.eclipsed_effigy": "Eclipsed Effigy"
 }

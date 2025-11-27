@@ -1,9 +1,12 @@
 package silly.chemthunder.asteria.mixin.client;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,25 +26,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import silly.chemthunder.asteria.Asteria;
 import silly.chemthunder.asteria.cca.ArisenPlayerComponent;
 
+import java.util.function.Function;
+
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
-    @Unique
-    private static final Identifier TEST_OVERLAY = Asteria.id("textures/gui/sprites/hud/effect_overlay/test_overlay.png");
-    @Shadow
-    private ItemStack currentStack;
+    @Unique private static final Identifier TEST_OVERLAY = Asteria.id("textures/gui/sprites/hud/effect_overlay/test_overlay.png");
+    @Unique private static final Identifier ARISEN_HEARTS = Asteria.id("textures/gui/sprites/hud/heart/arisen_hearts.png");
 
-    @Shadow
-    private int heldItemTooltipFade;
-
-    @Shadow
-    public abstract TextRenderer getTextRenderer();
-
-    @Shadow
-    @Final
-    private MinecraftClient client;
-
-    @Shadow
-    protected abstract void renderOverlay(DrawContext context, Identifier texture, float opacity);
+    @Shadow private ItemStack currentStack;
+    @Shadow private int heldItemTooltipFade;
+    @Shadow public abstract TextRenderer getTextRenderer();
+    @Shadow @Final private MinecraftClient client;
+    @Shadow protected abstract void renderOverlay(DrawContext context, Identifier texture, float opacity);
 
 
     @Inject(method = "renderHeldItemTooltip", at = @At("HEAD"))
@@ -85,4 +81,15 @@ public abstract class InGameHudMixin {
         }
     }
 
+//    @WrapOperation(method = "drawHeart", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Ljava/util/function/Function;Lnet/minecraft/util/Identifier;IIII)V"))
+//    private void customHearts(DrawContext instance, Function<Identifier, RenderLayer> renderLayers, Identifier sprite, int x, int y, int width, int height, Operation<Void> original) {
+//        PlayerEntity player = MinecraftClient.getInstance().player;
+//        if (player != null) {
+//            if (ArisenPlayerComponent.KEY.get(player).arisenTicks > 0) {
+//                original.call(instance, renderLayers, ARISEN_HEARTS, x, y, width, height);
+//            } else {
+//                original.call(instance, renderLayers, sprite, x, y, width, height);
+//            }
+//        }
+//    }
 }

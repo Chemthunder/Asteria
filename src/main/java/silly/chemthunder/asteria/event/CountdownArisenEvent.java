@@ -29,7 +29,6 @@ public class CountdownArisenEvent implements HudLayerRegistrationCallback {
                             0x62ffae
                     );
 
-
                     // wiggles
                     int i = MinecraftClient.getInstance().textRenderer.getWidth(mutableText);
                     int j = (context.getScaledWindowWidth() - i) / 2;

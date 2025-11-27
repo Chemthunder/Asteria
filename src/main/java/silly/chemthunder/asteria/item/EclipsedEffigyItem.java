@@ -1,5 +1,6 @@
 package silly.chemthunder.asteria.item;
 
+import com.nitron.nitrogen.util.interfaces.ScreenShaker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -55,6 +56,10 @@ public class EclipsedEffigyItem extends Item {
                         1,
                         1
                 );
+
+                if (user instanceof ScreenShaker screenShaker) {
+                    screenShaker.addScreenShake(1, 40);
+                }
             }
         }
         return super.use(world, user, hand);
