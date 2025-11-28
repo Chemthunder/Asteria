@@ -4,6 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.component.ComponentRegistry;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
@@ -23,7 +24,6 @@ public class ArisenPlayerComponent implements CommonTickingComponent, AutoSynced
     public void tick() {
         if (arisenTicks > 0) {
             arisenTicks--;
-            player.sendMessage(Text.literal("" + arisenTicks), true);
             player.setGlowing(true);
             if (arisenTicks == 0) {
                 sync();

@@ -12,11 +12,13 @@
     "requireAnnotations": true
   },
   "client": [
-    "client.ClientWorldMixin",
-    "client.CloudRendererMixin",
-    "client.OverworldDimensionEffectsMixin",
-    "client.SkyRenderingMixin",
-    "client.WeatherRenderingMixin",
-    "client.WorldRendererMixin"
+    "client.AbstractClientPlayerEntityMixin",
+    "client.InGameHudMixin",
+    "client.eclipse.ClientWorldMixin",
+    "client.eclipse.CloudRendererMixin",
+    "client.eclipse.OverworldDimensionEffectsMixin",
+    "client.eclipse.SkyRenderingMixin",
+    "client.eclipse.WeatherRenderingMixin",
+    "client.eclipse.WorldRendererMixin"
   ]
 }

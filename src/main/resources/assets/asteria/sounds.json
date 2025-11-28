@@ -1,0 +1,8 @@
+{
+  "event.eclipse_trigger": {
+    "sounds": [
+      "asteria:event/eclipse_trigger"
+    ],
+    "subtitle": "asteria.trigger"
+  }
+}

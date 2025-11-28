@@ -9,8 +9,8 @@
     "KindlingCinder"
   ],
   "contributors": [
-    "4kio - Sounds, music, and textures(?)",
-    "eeverest - Rendering help (genuinely tysm)"
+    "4kio - Sounds",
+    "eeverest - Rendering help"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -23,6 +23,9 @@
     "main": [
       "silly.chemthunder.asteria.Asteria"
     ],
+    "client": [
+      "silly.chemthunder.asteria.AsteriaClient"
+    ],
     "fabric-datagen": [
       "silly.chemthunder.asteria.AsteriaDataGenerator"
     ],
@@ -33,6 +36,7 @@
   "mixins": [
     "asteria.mixins.json"
   ],
+  "accessWidener": "asteria.accesswidener",
   "depends": {
     "fabricloader": ">=0.18.1",
     "minecraft": "~1.21.5",
