@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "select",
+    "cases": [
+      {
+        "model": {
+          "type": "model",
+          "model": "asteria:item/bygone_era_gui"
+        },
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "asteria:item/bygone_era_handheld"
+    },
+    "property": "display_context"
+  }
+}

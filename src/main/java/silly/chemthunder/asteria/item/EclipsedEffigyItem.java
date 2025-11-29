@@ -26,39 +26,41 @@ public class EclipsedEffigyItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        ItemStack stack = user.getStackInHand(hand);
-        MinecraftServer server = world.getServer();
+        if (!world.isNight()) {
+            ItemStack stack = user.getStackInHand(hand);
+            MinecraftServer server = world.getServer();
 
-        EclipsedSkyWorldComponent eclipse = EclipsedSkyWorldComponent.KEY.get(world);
-        eclipse.eclipseTicks = 180;
+            EclipsedSkyWorldComponent eclipse = EclipsedSkyWorldComponent.KEY.get(world);
+            eclipse.eclipseTicks = 180;
 
-        eclipse.sync();
-        if (!user.getGameMode().isCreative()) stack.decrement(1);
+            eclipse.sync();
+            if (!user.getGameMode().isCreative()) stack.decrement(1);
 
-        Box area = new Box(user.getBlockPos()).expand(3);
-        List<PlayerEntity> entities = world.getEntitiesByClass(PlayerEntity.class, area, entity -> true);
+            Box area = new Box(user.getBlockPos()).expand(3);
+            List<PlayerEntity> entities = world.getEntitiesByClass(PlayerEntity.class, area, entity -> true);
 
-        for (PlayerEntity player : entities) {
-            if (player.getInventory().contains(AsteriaItems.RITUALISTIC_BRACELET.getDefaultStack())) {
-                ArisenPlayerComponent arisen = ArisenPlayerComponent.KEY.get(player);
-                arisen.arisenTicks = 180;
-                arisen.sync();
+            for (PlayerEntity player : entities) {
+                if (player.getInventory().contains(AsteriaItems.RITUALISTIC_BRACELET.getDefaultStack())) {
+                    ArisenPlayerComponent arisen = ArisenPlayerComponent.KEY.get(player);
+                    arisen.arisenTicks = 180;
+                    arisen.sync();
+                }
             }
-        }
 
-        if (server != null) {
-            Collection<ServerPlayerEntity> serverPlayerEntities = server.getPlayerManager().getPlayerList();
+            if (server != null) {
+                Collection<ServerPlayerEntity> serverPlayerEntities = server.getPlayerManager().getPlayerList();
 
-            for (PlayerEntity player : serverPlayerEntities) {
-                player.playSoundToPlayer(
-                        AsteriaSounds.ECLIPSE_TRIGGER,
-                        SoundCategory.PLAYERS,
-                        1,
-                        1
-                );
+                for (PlayerEntity player : serverPlayerEntities) {
+                    player.playSoundToPlayer(
+                            AsteriaSounds.ECLIPSE_TRIGGER,
+                            SoundCategory.PLAYERS,
+                            1,
+                            1
+                    );
 
-                if (user instanceof ScreenShaker screenShaker) {
-                    screenShaker.addScreenShake(1, 40);
+                    if (user instanceof ScreenShaker screenShaker) {
+                        screenShaker.addScreenShake(1, 40);
+                    }
                 }
             }
         }

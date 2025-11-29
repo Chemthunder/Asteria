@@ -2,5 +2,9 @@
   "asteria.midnightconfig.test": "Test",
   "asteria.midnightconfig.title": "Asteria",
   "asteria.trigger": "The sun gives way to the Eclipse",
-  "item.asteria.eclipsed_effigy": "Eclipsed Effigy"
+  "block.asteria.eclipsed_altar": "Altar of the Eclipse",
+  "item.asteria.clock_of_vexing": "Clock Of Vexing",
+  "item.asteria.eclipsed_effigy": "Eclipsed Effigy",
+  "item.asteria.swampy_fruit": "Swampy Fruit",
+  "itemGroup.asteria": "Asteria"
 }
