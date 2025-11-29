@@ -34,7 +34,6 @@ public abstract class InGameHudMixin {
     @Shadow @Final private MinecraftClient client;
     @Shadow protected abstract void renderOverlay(DrawContext context, Identifier texture, float opacity);
 
-
     @Inject(method = "renderHeldItemTooltip", at = @At("HEAD"))
     private void textWiggle(DrawContext context, CallbackInfo ci) {
         PlayerEntity player = MinecraftClient.getInstance().player;

@@ -34,7 +34,7 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
     @Unique private boolean inEclipseLastTick = false;
     @Unique private float startX = 0f;
     @Unique private float startZ = 0f;
-    @Unique private final float ECLIPSE_TARGET_X = 25f;
+    @Unique private final float ECLIPSE_TARGET_X = 0f;
     @Unique private final float ECLIPSE_TARGET_Z = 45f;
     @Unique private static final float MAX_ROTATION_DEGREES = 45f;
     @Unique private static final float ROTATION_SPEED_DEGREES_PER_SECOND = 1f;

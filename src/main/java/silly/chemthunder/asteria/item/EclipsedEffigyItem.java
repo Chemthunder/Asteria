@@ -4,6 +4,7 @@ import com.nitron.nitrogen.util.interfaces.ScreenShaker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -18,6 +19,7 @@ import silly.chemthunder.asteria.index.AsteriaSounds;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public class EclipsedEffigyItem extends Item {
     public EclipsedEffigyItem(Settings settings) {
@@ -66,4 +68,6 @@ public class EclipsedEffigyItem extends Item {
         }
         return super.use(world, user, hand);
     }
+
+
 }
