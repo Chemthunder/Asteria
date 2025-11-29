@@ -43,6 +43,7 @@ public class ClockOfVexingItem extends Item implements ColorableItem {
     }
 
     // make this spawn a non culling particle that doesnt cull and shows thru walls, will make soon - everest
+    // really unclear comment fuck me ig, when you hold it, spawn this particle on the client
 
     @Override
     public int startColor(ItemStack itemStack) {
