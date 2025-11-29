@@ -14,10 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import silly.chemthunder.asteria.compat.AsteriaConfig;
 import silly.chemthunder.asteria.datagen.AsteriaItemTagProvider;
-import silly.chemthunder.asteria.index.AsteriaBlocks;
-import silly.chemthunder.asteria.index.AsteriaItemGroups;
-import silly.chemthunder.asteria.index.AsteriaItems;
-import silly.chemthunder.asteria.index.AsteriaSounds;
+import silly.chemthunder.asteria.index.*;
 
 public class Asteria implements ModInitializer {
 	public static final String MOD_ID = "asteria";
@@ -42,6 +39,7 @@ public class Asteria implements ModInitializer {
         AsteriaSounds.index();
         AsteriaItemGroups.index();
         AsteriaBlocks.index();
+        AsteriaEnchantments.index();
 
 
 
