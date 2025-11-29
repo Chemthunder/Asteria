@@ -14,13 +14,15 @@
   },
   "client": [
     "client.AbstractClientPlayerEntityMixin",
-    "client.eclipse.CameraMixin",
     "client.InGameHudMixin",
+    "client.eclipse.CameraMixin",
     "client.eclipse.ClientWorldMixin",
     "client.eclipse.CloudRendererMixin",
     "client.eclipse.OverworldDimensionEffectsMixin",
     "client.eclipse.SkyRenderingMixin",
     "client.eclipse.WeatherRenderingMixin",
-    "client.eclipse.WorldRendererMixin"
+    "client.eclipse.WorldRendererMixin",
+    "nitrogen.DrawContextAccessor",
+    "nitrogen.HandledScreenMixin"
   ]
 }
