@@ -57,11 +57,11 @@ public class CountdownArisenEvent implements HudLayerRegistrationCallback {
         int y = 3;
 
         if (t < 1f) {
-            MutableText prevText = Text.literal("" + prevSeconds).formatted(Formatting.ITALIC);
+            MutableText prevText = Text.literal("" + prevSeconds);
             context.drawTextWithShadow(tr, prevText, x, (int) (y + offsetOld), 0x62ffae);
         }
 
-        MutableText curText = Text.literal("" + seconds).formatted(Formatting.ITALIC);
+        MutableText curText = Text.literal("" + seconds);
         context.drawTextWithShadow(tr, curText, x, (int) (y + offsetNew), 0x62ffae);
 
         int i = tr.getWidth(curText);
