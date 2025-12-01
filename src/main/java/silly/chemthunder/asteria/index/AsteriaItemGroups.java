@@ -35,10 +35,5 @@ public interface AsteriaItemGroups {
         itemGroup.add(AsteriaItems.MOLTEN_SWAMPY_GOLD_INGOT);
         itemGroup.add(AsteriaItems.BYGONE_ERA);
         itemGroup.add(AsteriaItems.CLOCK_OF_VEXING);
-
-        //testing
-//        itemGroup.add(BulwarkBlocks.BUDDING_KLAPROTH);
-//        itemGroup.add(BulwarkBlocks.OMINOUS_CATALYST);
-//        itemGroup.add(BulwarkItems.DENTIST);
     }
 }

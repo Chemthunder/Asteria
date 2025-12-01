@@ -1,10 +1,8 @@
 package silly.chemthunder.asteria.index;
 
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKey;
@@ -18,6 +16,7 @@ import java.util.function.Function;
 public interface AsteriaBlocks {
     Block ECLIPSED_ALTAR = createWithItem("eclipsed_altar", EclipsedAltarBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)
             .sounds(BlockSoundGroup.LODESTONE)
+            .luminance((state -> 10))
     );
 
     static Block create(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {

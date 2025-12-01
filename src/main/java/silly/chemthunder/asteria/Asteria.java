@@ -40,6 +40,8 @@ public class Asteria implements ModInitializer {
         AsteriaItemGroups.index();
         AsteriaBlocks.index();
         AsteriaEnchantments.index();
+        AsteriaEntities.index();
+        AsteriaBlockEntities.index();
 
 
 

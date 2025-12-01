@@ -1,11 +1,8 @@
 package silly.chemthunder.asteria.index;
 
 import net.acoyt.acornlib.api.items.AcornItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import silly.chemthunder.asteria.Asteria;
@@ -57,10 +54,6 @@ public interface AsteriaItems {
         modifyItemNameColor(RITUALISTIC_BRACELET, 0x62ffae);
         modifyItemNameColor(BYGONE_ERA, 0x62ffae);
         modifyItemNameColor(CLOCK_OF_VEXING, 0x62ffae);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
-            entries.addAfter(Items.TRIDENT, ECLIPSED_EFFIGY);
-            entries.addAfter(ECLIPSED_EFFIGY, RITUALISTIC_BRACELET);
-        });
+        modifyItemNameColor(Item.fromBlock(AsteriaBlocks.ECLIPSED_ALTAR), 0x62ffae);
     }
 }

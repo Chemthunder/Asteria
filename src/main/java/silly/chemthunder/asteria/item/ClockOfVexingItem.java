@@ -1,8 +1,5 @@
 package silly.chemthunder.asteria.item;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,18 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.core.jmx.Server;
-import org.jetbrains.annotations.Nullable;
 import silly.chemthunder.asteria.api.ColorableItem;
 import silly.chemthunder.asteria.tooltip.ClockTooltipData;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class ClockOfVexingItem extends Item implements ColorableItem {
@@ -47,6 +38,8 @@ public class ClockOfVexingItem extends Item implements ColorableItem {
 
     // make this spawn a non culling particle that doesnt cull and shows thru walls, will make soon - everest
     // really unclear comment fuck me ig, when you hold it, spawn this particle on the client
+
+    // ah yes, non culling particle that doesn't cull. That's the same fucking thing :sob:
 
     @Override
     public int startColor(ItemStack itemStack) {
