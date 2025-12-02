@@ -95,7 +95,6 @@ public abstract class SkyRenderingMixin implements AutoCloseable {
         matrices.pop();
     }
 
-
     @WrapOperation(
             method = "renderSun",
             at = @At(
