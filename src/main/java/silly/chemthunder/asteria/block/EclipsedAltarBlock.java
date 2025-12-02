@@ -58,3 +58,4 @@ public class EclipsedAltarBlock extends BlockWithEntity {
         super.onBroken(world, pos, state);
     }
 }
+// bhkgrktuibgnuortb
