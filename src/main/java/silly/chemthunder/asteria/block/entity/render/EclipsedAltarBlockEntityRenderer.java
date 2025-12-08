@@ -17,33 +17,27 @@ import silly.chemthunder.asteria.cca.EclipsedSkyWorldComponent;
 
 public class EclipsedAltarBlockEntityRenderer implements BlockEntityRenderer<EclipsedAltarBlockEntity> {
 
-    Identifier SILLY = Asteria.id("textures/entity/sun_book");
     @Override
     public void render(EclipsedAltarBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
         assert entity.getWorld() != null;
+
+        // todo: change texture back to color.png, and not a fricking pear teto :sob:
         if (EclipsedSkyWorldComponent.KEY.get(entity.getWorld()).eclipseTicks > 0) {
             matrices.push();
 
-            matrices.translate(-entity.getPos().getX() + 0.5, -entity.getPos().getY() + 0.5f, -entity.getPos().getZ() + 0.5);
+            matrices.translate(-entity.getPos().getX() + 0.5, -entity.getPos().getY() + 15.5f, -entity.getPos().getZ() + 0.5);
             RenderUtils.renderTexturedSphere(
                     matrices,
                     vertexConsumers.getBuffer(RenderLayer.getEntitySolid(
                             Asteria.id(
-                                    "textures/render/color.png"
+                                    "textures/render/pear_teto.png"
                             )
                     )),
                     entity.getPos(),
                     5.0f,
-                    350,
-                    1
+                    2,
+                    0
             );
-
-            Quaternionf quaternionf = new Quaternionf();
-            quaternionf.slerp(quaternionf, 1);
-            matrices.multiply(quaternionf);
-
-
-
             matrices.pop();
         }
 
