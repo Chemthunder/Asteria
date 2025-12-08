@@ -12,7 +12,7 @@ import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.text.Text;
 import net.minecraft.util.Util;
 import org.joml.Vector2ic;
-import silly.chemthunder.asteria.api.ColorableItem;
+import silly.chemthunder.asteria.ported.api.ColorableItem;
 
 import java.util.List;
 import java.util.Optional;

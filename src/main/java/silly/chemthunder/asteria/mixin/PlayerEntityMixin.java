@@ -20,14 +20,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void ticker(CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        if (EclipsedSkyWorldComponent.KEY.get(getWorld()).eclipseTicks > 0) {
-            ArisenPlayerComponent arisen = ArisenPlayerComponent.KEY.get(player);
-            arisen.arisenTicks = 180;
-        }
-    }
+
 
     @ModifyReturnValue(method = "getMovementSpeed", at = @At("RETURN"))
     private float bonusMovementSpeed(float original) {

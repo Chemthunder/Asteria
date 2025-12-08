@@ -35,27 +35,5 @@ public class EclipsedAltarBlock extends BlockWithEntity {
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
-
-    @Override
-    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.getBlockEntity(pos) instanceof EclipsedAltarBlockEntity entity) {
-            if (!stack.isOf(Blocks.AIR.asItem())) {
-                entity.containedItems.add(stack);
-                entity.markDirty();
-
-                stack.decrementUnlessCreative(1, player);
-            } else {
-                player.sendMessage(Text.literal(":" + entity.containedItems.toString()), false);
-            }
-        }
-        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
-    }
-    // remove items and sync with client / server
-
-    @Override
-    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-        // items scatter when broken
-        super.onBroken(world, pos, state);
-    }
 }
 // bhkgrktuibgnuortb

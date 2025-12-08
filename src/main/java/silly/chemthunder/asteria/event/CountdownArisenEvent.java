@@ -10,7 +10,6 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import org.joml.Quaternionf;
 import silly.chemthunder.asteria.Asteria;
 import silly.chemthunder.asteria.cca.ArisenPlayerComponent;

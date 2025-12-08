@@ -1,4 +1,4 @@
-package silly.chemthunder.asteria.api;
+package silly.chemthunder.asteria.ported.api;
 
 import net.minecraft.item.ItemStack;
 

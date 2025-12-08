@@ -43,8 +43,6 @@ public class Asteria implements ModInitializer {
         AsteriaEntities.index();
         AsteriaBlockEntities.index();
 
-
-
         FabricLoader.getInstance().getModContainer(Asteria.MOD_ID).ifPresent(container -> {
             ResourceManagerHelper.registerBuiltinResourcePack(id("pear_teto_swampy_fruit"), container, Text.literal("pear teto"), ResourcePackActivationType.NORMAL);
         });

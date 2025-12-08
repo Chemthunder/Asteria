@@ -11,7 +11,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import silly.chemthunder.asteria.api.ColorableItem;
+import silly.chemthunder.asteria.ported.api.ColorableItem;
 import silly.chemthunder.asteria.tooltip.ClockTooltipData;
 
 import java.util.Optional;
