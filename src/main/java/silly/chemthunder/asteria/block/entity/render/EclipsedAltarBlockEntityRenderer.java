@@ -2,15 +2,10 @@ package silly.chemthunder.asteria.block.entity.render;
 
 import com.nitron.nitrogen.render.RenderUtils;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Quaternionf;
 import silly.chemthunder.asteria.Asteria;
 import silly.chemthunder.asteria.block.entity.EclipsedAltarBlockEntity;
 import silly.chemthunder.asteria.cca.EclipsedSkyWorldComponent;
